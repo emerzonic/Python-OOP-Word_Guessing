@@ -1,14 +1,14 @@
-import word
-import words_bank
-import random
-
+#This class controls the game by calling methods on the word and letter classes
 class Game_controller:
     new_word = ''
     score = 0
 
-    # generate randon word from words_bank
+    # generate random word from words_bank
     @classmethod
     def generate_word(cls):
+        import word
+        import words_bank
+        import random
         random_word = random.choice(words_bank.words_list)
         cls.new_word = word.Word(random_word)
         # print(cls.new_word.word) # for testing only
