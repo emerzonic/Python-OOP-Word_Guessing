@@ -11,7 +11,7 @@ class Game_controller:
     def generate_word(cls):
         random_word = random.choice(words_bank.words_list)
         cls.new_word = word.Word(random_word)
-        print(cls.new_word.word)
+        # print(cls.new_word.word) # for testing only
         cls.new_word.split_letters()
         cls.new_word.display_word()
         cls.take_user_guess()
