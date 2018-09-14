@@ -4,6 +4,7 @@ import random
 
 class Game_controller:
     new_word = ''
+    score = 0
 
     # generate randon word from words_bank
     @classmethod
@@ -23,6 +24,8 @@ class Game_controller:
             cls.new_word.take_char(guess)
             cls.new_word.track_status()
             cls.new_word.display_word()
+        cls.score += 1
+        print(f'Your score is: {cls.score}')
         cls.reset_game()
            
 
