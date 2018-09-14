@@ -2,9 +2,10 @@ import word
 import words_bank
 import random
 
-class Controller:
+class Game_controller:
     new_word = ''
 
+    # generate randon word from words_bank
     @classmethod
     def generate_word(cls):
         random_word = random.choice(words_bank.words_list)
@@ -14,7 +15,7 @@ class Controller:
         cls.new_word.display_word()
         cls.take_user_guess()
 
-
+    # Checks the word's status, prompts and takes the user guess and validate
     @classmethod
     def take_user_guess(cls):
         while not cls.new_word.status:
@@ -31,4 +32,10 @@ class Controller:
         if confirm == 'y':
             cls.generate_word()
         return print('THANKS FOR PLAYING!')
+
+
+
+
+
+Game_controller.generate_word()
        
