@@ -62,7 +62,7 @@ class Game_controller:
     # Confirms to continue playing or not
     @classmethod
     def reset_game(cls):
-        confirm = input('WOULD YOU LIKE TO PLAY AGAIN? (y/n) ')
+        confirm = input(colored('WOULD YOU LIKE TO PLAY AGAIN? (y/n) ',attrs=['blink']))
         response = confirm.lower()
         if response == 'y':
             cls.guessed_letters = []
