@@ -59,8 +59,8 @@ class Game_controller:
     @classmethod
     def reset_game(cls):
         confirm = input('WOULD YOU LIKE TO PLAY AGAIN? (y/n) ')
-        if confirm == 'y' or 'Y':
-            print(f'{confirm}')
+        response = confirm.lower()
+        if response == 'y':
             cls.guessed_letters = []
             return cls.generate_word()
         return print('THANKS FOR PLAYING!')
