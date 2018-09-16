@@ -1,4 +1,5 @@
 import letter
+from termcolor import colored
 
 
 class Word:
@@ -21,7 +22,7 @@ class Word:
 
     # This method generates the number of attempts base on the length of the random word
     def generate_attempts(self):
-        self.attempts = len(self.word)
+        self.attempts = len(self.word) * 3
         print(f'You have {self.attempts} fail attempts to make on this word.')
         return self
 
@@ -49,14 +50,14 @@ class Word:
             if obj.check_guess() != '_':
                 tracker += 1
         if self.feed_back != tracker:
-            print('CORRECT!')
+            print(colored('CORRECT!', color='green'))
             self.feed_back = tracker
         else:
             self.attempts -= 1
-            print('INCORRECT!')
+            print(colored('INCORRECT!', color='red'))
             attempts = 'attempts' if self.attempts >= 2 else 'attempt'
-            print(f'You have {self.attempts} {attempts} remaining.')
+            print(colored(f'You have {self.attempts} {attempts} remaining.', color='red'))
         remaining_num = int(len(self.word) - tracker)
         letters = 'letters' if remaining_num >= 2 else 'letter'
-        print(f'...{remaining_num} more {letters} remaining to guess it right')
+        print(colored(f'...{remaining_num} more {letters} remaining to guess it right', color='green'))
         return self

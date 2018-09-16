@@ -1,4 +1,5 @@
 import assets as Data
+from termcolor import colored
 
 # This class controls the game by calling methods on the word and letter classes
 
@@ -24,7 +25,7 @@ class Game_controller:
     @classmethod
     def validateUserInput(cls, guess):
         if guess not in Data.Assets['valid_letters']:
-            print("That's not a valid guess")
+            print(colored("That's not a valid guess", color='red'))
             return cls.take_user_guess()
 
     # Checks if all the letters the word have been guess and also the player fail attempts remaining.
@@ -32,7 +33,7 @@ class Game_controller:
     def check_word_status(cls):
         while not cls.new_word.status:
             if cls.new_word.attempts <= 0:
-                print('G A M E  O V E R !')
+                print(colored("G A M E O V E R !", color='red'))
                 print(f'The word was {cls.new_word.word}')
                 return cls.reset_game()
             return cls.take_user_guess()
