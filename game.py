@@ -12,8 +12,8 @@ class Game_controller:
     @classmethod
     def generate_word(cls):
         import word
-        import random
-        random_word = random.choice(Data.Assets['words_list'])
+        from random import choice
+        random_word = choice(Data.Assets['words_list'])
         print('YOU GOT A NEW WORD!')
         cls.new_word = word.Word(random_word)
         # print(cls.new_word.word) # for testing only
