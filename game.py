@@ -44,7 +44,7 @@ class Game_controller:
         cls.generate_word()
 
 
-    # Checks the word's status, prompts and takes the user guess and validate
+    # Prompts the player for guesses
     @classmethod
     def take_user_guess(cls):
         user_input = input('Guess a letter ')
@@ -57,9 +57,9 @@ class Game_controller:
         cls.guessed_letters.append(guess)
         cls.new_word.take_char(guess).track_status().display_word()
         cls.check_word_status()
-        
 
-    # Ask the user to continue playing or not
+
+    # Ask the player to continue playing or not
     @classmethod
     def reset_game(cls):
         confirm = input('WOULD YOU LIKE TO PLAY AGAIN? (y/n) ')

@@ -13,6 +13,7 @@ class Word:
         self.feed_back = 0
         self.attempts = 0
 
+
     # This method takes a word and splits the letters into objects
     def split_letters(self):
         for l in self.word:
@@ -20,11 +21,13 @@ class Word:
             self.splitted_letters.append(letter_obj)
         return self
 
+
     # This method generates the number of attempts base on the length of the random word
     def generate_attempts(self):
         self.attempts = len(self.word) * 3
         print(f'You have {self.attempts} fail attempts to make on this word.')
         return self
+
 
     # This method takes each letter object and calls the Letter check_guess method and returns a word and status of user guesses left.
     def display_word(self):
@@ -37,11 +40,13 @@ class Word:
             print('You guessed it right!')
         return self
 
+
     # This method takes the user's guess(letter) and calls the Letter take_guess method on it.
     def take_char(self, guess):
         for l in self.splitted_letters:
             l.take_guess(guess)
         return self
+        
 
     # This method tracks the status of the guesses remaining and updates if guess is wrong or correct
     def track_status(self):
