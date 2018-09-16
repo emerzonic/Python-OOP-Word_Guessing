@@ -18,3 +18,12 @@ I decided to recreate my JavaScript class word guessing game using python OOP.
 * The player score is increased
 * A new word is generated
 
+
+See Demo
+
+![Demo](/demo.gif)
+
+#### module
+ * termcolor
+
+
