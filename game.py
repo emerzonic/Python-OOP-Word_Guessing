@@ -1,5 +1,5 @@
 import assets as Data
-from termcolor import colored
+from termcolor import colored # A module use for adding font color in terminal
 
 # This class controls the game by calling methods on the word and letter classes
 class Game_controller:
@@ -8,7 +8,7 @@ class Game_controller:
     guessed_letters = []
 
 
-    # Generate random word from words_bank
+    # Generates random word from assest words list
     @classmethod
     def generate_word(cls):
         import word
@@ -21,15 +21,15 @@ class Game_controller:
         cls.take_user_guess()
 
 
-    # Validate that the user only enter a letter (A-Z)
+    # Validates that the user only enter a letter (A-Z)
     @classmethod
-    def validateUserInput(cls, guess):
+    def validate_User_Input(cls, guess):
         if guess not in Data.Assets['valid_letters']:
             print(colored("That's not a valid guess", color='red'))
             return cls.take_user_guess()
 
 
-    # Checks if all the letters the word have been guess and also the player fail attempts remaining.
+    # Checks if all the letters the word have been guess and also checks the player's fail attempts remaining.
     @classmethod
     def check_word_status(cls):
         while not cls.new_word.status:
@@ -49,7 +49,7 @@ class Game_controller:
     def take_user_guess(cls):
         user_input = input('Guess a letter ')
         guess = user_input.lower()
-        cls.validateUserInput(guess)
+        cls.validate_User_Input(guess)
         if guess in cls.guessed_letters:
             print(f'You have already guessed {guess}. Try again')
             print(f'Letters already guessed: ' + ','.join(cls.guessed_letters))
@@ -59,7 +59,7 @@ class Game_controller:
         cls.check_word_status()
 
 
-    # Ask the player to continue playing or not
+    # Confirms to continue playing or not
     @classmethod
     def reset_game(cls):
         confirm = input('WOULD YOU LIKE TO PLAY AGAIN? (y/n) ')
