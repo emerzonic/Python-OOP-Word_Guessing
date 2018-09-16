@@ -1,12 +1,14 @@
 import assets as Data
 
 # This class controls the game by calling methods on the word and letter classes
+
+
 class Game_controller:
     new_word = ''
     score = 0
     guessed_letters = []
 
-    # generate random word from words_bank
+    # Generate random word from words_bank
     @classmethod
     def generate_word(cls):
         import word
@@ -18,7 +20,7 @@ class Game_controller:
         cls.new_word.split_letters().generate_attempts().display_word()
         cls.take_user_guess()
 
-    #validate that the user only enter a letter (A-Z)
+    # Validate that the user only enter a letter (A-Z)
     @classmethod
     def validateUserInput(cls, guess):
         if guess not in Data.Assets['valid_letters']:
@@ -38,7 +40,6 @@ class Game_controller:
         print(f'Your score is: {cls.score}')
         cls.guessed_letters = []
         cls.generate_word()
-    
 
     # Checks the word's status, prompts and takes the user guess and validate
     @classmethod
@@ -48,12 +49,11 @@ class Game_controller:
         cls.validateUserInput(guess)
         if guess in cls.guessed_letters:
             print(f'You have already guessed {guess}. Try again')
-            print(f'Letters already guessed: '+ ','.join(cls.guessed_letters))
+            print(f'Letters already guessed: ' + ','.join(cls.guessed_letters))
             return cls.take_user_guess()
         cls.guessed_letters.append(guess)
         cls.new_word.take_char(guess).track_status().display_word()
         cls.check_word_status()
-           
 
     # Ask the user to continue playing or not
     @classmethod
@@ -66,7 +66,5 @@ class Game_controller:
         return print('THANKS FOR PLAYING!')
 
 
-#Start a new game
+# Start a new game
 Game_controller.generate_word()
-
-       
