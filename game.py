@@ -14,7 +14,7 @@ class Game_controller:
         random_word = random.choice(Data.Assets['words_list'])
         print('YOU GOT A NEW WORD!')
         cls.new_word = word.Word(random_word)
-        print(cls.new_word.word) # for testing only
+        # print(cls.new_word.word) # for testing only
         cls.new_word.split_letters().generate_attempts().display_word()
         cls.take_user_guess()
 
