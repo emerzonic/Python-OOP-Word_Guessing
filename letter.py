@@ -2,9 +2,7 @@
 
 class Letter:
     """docstring for Letter"""
-
     def __init__(self, letter):
-        # super(Letter, self).__init__()
         self.letter = letter
         self.placeholder = '_'
         self.status = False

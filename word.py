@@ -4,9 +4,7 @@ from termcolor import colored
 
 class Word:
     """docstring for Word"""
-
     def __init__(self, word):
-        # super(Word, self).__init__()
         self.word = word
         self.splitted_letters = []
         self.status = False
