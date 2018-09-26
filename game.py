@@ -24,7 +24,6 @@ class Game_controller:
     # Validates that the user only enter a letter (A-Z)
     @classmethod
     def validate_User_Input(cls, guess):
-        # if guess not in Data.Assets['valid_letters']:
         if not guess.isalpha():
             print(colored("That's not a valid guess", color='red'))
             return cls.take_user_guess()
