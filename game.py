@@ -1,4 +1,4 @@
-import assets as Data
+import assets
 from termcolor import colored # A module use for adding font color in terminal
 
 # This class controls the game by calling methods on the word and letter classes
@@ -13,7 +13,7 @@ class Game_controller:
     def generate_word(cls):
         import word
         from random import choice
-        random_word = choice(Data.Assets['words_list'])
+        random_word = choice(assets.words)
         print('YOU GOT A NEW WORD!')
         cls.new_word = word.Word(random_word)
         # print(cls.new_word.word) # for testing only
@@ -24,7 +24,8 @@ class Game_controller:
     # Validates that the user only enter a letter (A-Z)
     @classmethod
     def validate_User_Input(cls, guess):
-        if guess not in Data.Assets['valid_letters']:
+        # if guess not in Data.Assets['valid_letters']:
+        if not guess.isalpha():
             print(colored("That's not a valid guess", color='red'))
             return cls.take_user_guess()
 
@@ -35,7 +36,7 @@ class Game_controller:
         while not cls.new_word.status:
             if cls.new_word.attempts <= 0:
                 print(colored("G A M E O V E R !", color='red'))
-                print(f'The word was {cls.new_word.word}')
+                print(f"The word was {cls.new_word.word}")
                 return cls.reset_game()
             return cls.take_user_guess()
         cls.score += 1
