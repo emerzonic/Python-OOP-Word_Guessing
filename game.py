@@ -17,7 +17,9 @@ class Game_controller:
         print('YOU GOT A NEW WORD!')
         cls.new_word = word.Word(random_word)
         # print(cls.new_word.word) # for testing only
-        cls.new_word.split_letters().generate_attempts().display_word()
+        cls.new_word.split_letters()
+                    .generate_attempts()
+                    .display_word()
         cls.take_user_guess()
 
 
@@ -32,7 +34,9 @@ class Game_controller:
             print(f'Letters already guessed: ' + ','.join(cls.guessed_letters))
             return cls.take_user_guess()
         cls.guessed_letters.append(guess)
-        cls.new_word.take_char(guess).track_status().display_word()
+        cls.new_word.take_char(guess)
+                    .track_status()
+                    .display_word()
         cls.check_word_status()
         
 
