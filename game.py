@@ -21,6 +21,21 @@ class Game_controller:
         cls.take_user_guess()
 
 
+        # Prompts the player for guesses
+    @classmethod
+    def take_user_guess(cls):
+        user_input = input('Guess a letter ')
+        guess = user_input.lower()
+        cls.validate_User_Input(guess)
+        if guess in cls.guessed_letters:
+            print(f'You have already guessed {guess}. Try again')
+            print(f'Letters already guessed: ' + ','.join(cls.guessed_letters))
+            return cls.take_user_guess()
+        cls.guessed_letters.append(guess)
+        cls.new_word.take_char(guess).track_status().display_word()
+        cls.check_word_status()
+        
+
     # Validates that the user only enter a letter (A-Z)
     @classmethod
     def validate_User_Input(cls, guess):
@@ -42,21 +57,6 @@ class Game_controller:
         print(f'Your score is: {cls.score}')
         cls.guessed_letters = []
         cls.generate_word()
-
-
-    # Prompts the player for guesses
-    @classmethod
-    def take_user_guess(cls):
-        user_input = input('Guess a letter ')
-        guess = user_input.lower()
-        cls.validate_User_Input(guess)
-        if guess in cls.guessed_letters:
-            print(f'You have already guessed {guess}. Try again')
-            print(f'Letters already guessed: ' + ','.join(cls.guessed_letters))
-            return cls.take_user_guess()
-        cls.guessed_letters.append(guess)
-        cls.new_word.take_char(guess).track_status().display_word()
-        cls.check_word_status()
 
 
     # Confirms to continue playing or not
